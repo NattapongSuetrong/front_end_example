@@ -18,6 +18,7 @@
         cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อวางเมาส์เหนือปุ่ม */
         transition: background-color 0.3s ease, box-shadow 0.3s ease; /* เพิ่มเอฟเฟกต์ทรานซิชัน */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+        margin: 5px 0;
     }
     button:hover {
         background-color: #0056b3; /* สีพื้นหลังเมื่อเมาส์ชี้ */
@@ -28,13 +29,20 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ลดเงาเมื่อคลิก */
     }
     div{
-        margin: 5% 50%;
-
+        width: 80%;
+        background-color:rgb(247, 247, 247);
+        margin: 160px auto 80px ;
+        border-radius: 15px;
+        padding: 5px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 </style>
 <body>
     <div id="app">
-        <button @click="inc()"> {{ num }} </button>
+        <center>
+            <button @click="inc()"> {{ num }} </button>
+        </center>
+        
     </div>
 
     <script>
