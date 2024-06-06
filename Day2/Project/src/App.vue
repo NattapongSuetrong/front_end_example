@@ -6,6 +6,8 @@
   import lightComponent from './components/lightComponent.vue'
   import GradeComponent from './components/GradeComponent.vue'
   import pricePerUnitComponent from './components/pricePerUnitComponent.vue'
+  import BMIComponent from'./components/BMIComponent.vue'
+  import todoComponent from'./components/todoComponent.vue'
 </script>
 
 <template>
@@ -27,6 +29,13 @@
   </div> <br>
   <div class="box">
     <pricePerUnitComponent></pricePerUnitComponent>
+  </div> <br>
+  <div class="box">
+    <BMIComponent></BMIComponent>
+  </div>
+  <br>
+  <div class="box">
+    <todoComponent></todoComponent>
   </div>
 </template>
 
