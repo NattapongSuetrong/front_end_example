@@ -1,0 +1,38 @@
+button {
+    background-color: #007bff; /* สีพื้นหลังปุ่ม */
+    color: #fff; /* สีข้อความ */
+    padding: 10px 20px; /* ระยะห่างด้านในปุ่ม */
+    border: none; /* ไม่มีเส้นขอบ */
+    border-radius: 25px; /* ทำให้มุมมน */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อวางเมาส์เหนือปุ่ม */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* เพิ่มเอฟเฟกต์ทรานซิชัน */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+    margin-left: 3%;
+}
+button:hover {
+    background-color: #0056b3; /* สีพื้นหลังเมื่อเมาส์ชี้ */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* เพิ่มเงาเมื่อเมาส์ชี้ */
+}
+button:active {
+    background-color: #004494; /* สีพื้นหลังเมื่อคลิก */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ลดเงาเมื่อคลิก */
+}
+.container{
+    width: 80%;
+    background-color:rgb(247, 247, 247);
+    margin: 160px auto 80px ;
+    border-radius: 15px;
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input{
+    font-size: 16pt;
+    width: 30%;
+}
+
+body{
+    font-family: 'Kanit';
+    font-size: 16pt;
+}

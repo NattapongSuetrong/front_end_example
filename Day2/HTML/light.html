@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>light</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>  <!--ดึงไลบารี vue.js-->
+    <style>
+        .light{
+            border-radius: 50%;
+            border-width: 5px;
+            border-color: #333;
+            border-style: solid;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+        
+        .on{
+            background-color: yellow;
+        }
+        
+        .off{
+            background-color:#333;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:class="{light: true, on: status, off: !status}" @click="turn()"></div>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue  
+
+        createApp({
+            setup() {
+                const status = ref('true')
+
+                function turn(){
+                    status.value = !status.value
+                }
+                return {
+                    turn,
+                    status
+                }
+            }   
+        }).mount('#app')
+    </script>
+</body>
+</html>

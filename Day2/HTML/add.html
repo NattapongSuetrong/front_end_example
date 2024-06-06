@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>  <!--ดึงไลบารี vue.js-->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_day2.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <input type="number" v-model="num1"> 
+            + 
+            <input type="text" v-model.number="num2">
+            <button @click="add()">Calculate</button>
+            <div>{{ result }}</div>
+        </div>
+        
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue  
+
+        createApp({
+            setup() {
+                const num1 = ref(0)
+                const num2 = ref(0)
+                const result = ref(0)
+                function add(){
+                    result.value = num1.value + num2.value
+                }
+                return {
+                    add,
+                    num1,
+                    num2,
+                    result
+                }
+            }   
+        }).mount('#app')
+    </script>
+</body>
+</html>
