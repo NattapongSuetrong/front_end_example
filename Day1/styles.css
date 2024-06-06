@@ -1,0 +1,115 @@
+body{
+    font-family: 'Kanit';
+    font-size: 16pt;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #333;
+    color:#fff;
+    padding-bottom: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+header h1{
+    margin: 0;
+    padding: 5px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+    nav ul li {
+    display: inline-block;
+    margin: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 15px 20px;;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    border-bottom: 3px solid darkred;  
+    padding: 0;
+    margin: 0;
+    font-size: 18pt;
+    font-weight: bolder;
+  }
+
+section h2{
+    font-size: 20pt;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+img#profile{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid gray;
+}
+
+.container{
+    width: 800px;
+    background-color:rgb(247, 247, 247);
+    margin: 160px auto 80px ;
+    border-radius: 15px;
+    padding: 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+footer{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 12pt;
+    position:fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+
+button {
+    background-color: #007bff; /* สีพื้นหลังปุ่ม */
+    color: #fff; /* สีข้อความ */
+    padding: 10px 20px; /* ระยะห่างด้านในปุ่ม */
+    border: none; /* ไม่มีเส้นขอบ */
+    border-radius: 25px; /* ทำให้มุมมน */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อวางเมาส์เหนือปุ่ม */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* เพิ่มเอฟเฟกต์ทรานซิชัน */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+}
+button:hover {
+    background-color: #0056b3; /* สีพื้นหลังเมื่อเมาส์ชี้ */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* เพิ่มเงาเมื่อเมาส์ชี้ */
+}
+button:active {
+    background-color: #004494; /* สีพื้นหลังเมื่อคลิก */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ลดเงาเมื่อคลิก */
+}
+
+input{
+    font-size: 16pt;
+    font-family: 'Kanit';
+}
+
+#count_text{
+    font-size: 18pt;
+    font-weight: bolder;
+    font-family: 'Kanit';
+    margin: 20px;
+}
