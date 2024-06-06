@@ -4,42 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>ข้อมูลส่วนตัว</h2>
-    <img src="cat.jpeg" alt="My Image" width="300">
-    <ul>
-        <li>ชื่อ: นายนัทธพงศ์ ซื่อตรง</li>
-        <li>วัน/เดือน/ปีเกิด: 30 เมษายน 2547</li>
-        <li>ที่อยู่: 99 หมู่ 4 ต.แสนสุข อ.เมือง จ.ชลบุรี</li>
-        <li>เบอร์โทรศัพท์: 099-570-3720</li>
-        <li>อีเมล: 65160038@go.buu.ac.th</li>
-    </ul>
-    <h2>ประวัติการศึกษา</h2>
-    <ul>
-        <li>
-            <p>ปริญญาโท: วิทยาการคอมพิวเตอร์</p>
-            <p>มหาวิทยาลัยกรุงเทพ, พ.ศ. 2560 - 2562</p>
-        </li>
-        <li>
-            <p>ปริญญาตรี: วิทยาการคอมพิวเตอร์</p>
-            <p>มหาวิทยาลัยเกษตรศาสตร์, พ.ศ. 2556 - 2560</p>
-        </li>
-    </ul>
-    <h2>ประสบการณ์การทำงาน</h2>
-    <ul>
-        <li>ตำแหน่ง: นักพัฒนาซอฟต์แวร์</li>
-        <li>บริษัท: ซอฟต์แวร์ โซลูชั่น จำกัด</li>
-        <li>ระยะเวลา: มกราคม 2563 - ปัจจุบัน</li>
-        <li>
-            หน้าที่และความรับผิดชอบ:
+    <header>
+        <h1 style="background-color:rgb(144, 0, 0); font-size: 26pt;">Portfolio ของ นายนัทธพงศ์ ซื่อตรง</h1>
+        <nav> <!--menu-->
             <ul>
-                <li>ออกแบบและพัฒนาระบบเว็บแอปพลิเคชันโดยใช้ภาษา Python และ JavaScript</li>
-                <li>จัดการฐานข้อมูลด้วย MySQL และ PostgreSQL</li>
-                <li>ทดสอบและแก้ไขข้อบกพร่องในซอฟต์แวร์</li>
-                <li>ประสานงานกับทีมดีไซน์และทีมบริหารเพื่อปรับปรุงประสิทธิภาพของแอปพลิเคชัน</li>
+                <li><a href="portfolio.html#information">ข้อมูลส่วนตัว</a></li>
+                <li><a href="portfolio.html#education">ประวัติการศึกษา</a></li>
+                <li><a href="portfolio.html#skill">ทักษะและความเชี่ยวชาญ</a></li>
+                <li><a href="portfolio.html#work">ประสบการณ์การทำงาน</a></li>
             </ul>
-        </li>
-    </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="information"> <!--ข้อมูลส่วนตัว-->
+            <h2>ข้อมูลส่วนตัว</h2>
+            <center>
+                <img id="profile" src="cat.jpeg" alt="My Image">
+            </center>
+            
+            <ul>
+                <li>ชื่อ: นายนัทธพงศ์ ซื่อตรง</li>
+                <li>วัน/เดือน/ปีเกิด: 30 เมษายน 2547</li>
+                <li>ที่อยู่: 99 หมู่ 4 ต.แสนสุข อ.เมือง จ.ชลบุรี</li>
+                <li>เบอร์โทรศัพท์: 099-570-3720</li>
+                <li>อีเมล: 65160038@go.buu.ac.th</li>
+            </ul>
+        </section>
+    
+        <section id="education">   <!--ประวัติการศึกษา-->
+            <h2>ประวัติการศึกษา</h2>
+            <ul>
+                <li>
+                    <p>ปริญญาโท: วิทยาการคอมพิวเตอร์</p>
+                    <p>มหาวิทยาลัยกรุงเทพ, พ.ศ. 2560 - 2562</p>
+                </li>
+                <li>
+                    <p>ปริญญาตรี: วิทยาการคอมพิวเตอร์</p>
+                    <p>มหาวิทยาลัยเกษตรศาสตร์, พ.ศ. 2556 - 2560</p>
+                </li>
+            </ul>
+        </section>
+    
+        <section id="skill"> <!--ทักษะและความเชี่ยวชาญ-->
+            <h2>ทักษะและความเชี่ยวชาญ</h2>
+            <ul>
+                <li>ภาษาโปรแกรม: Python, JavaScript, HTML, CSS, SQL</li>
+                <li>เครื่องมือและเทคโนโลยี: Django, Flask, React, Node.js, Git</li>
+                <li>ทักษะด้านฐานข้อมูล: MySQL, PostgreSQL, MongoDB</li>
+                <li>ทักษะอื่นๆ: การแก้ปัญหา, การทำงานเป็นทีม, การสื่อสาร</li>
+            </ul>
+        </section>
+
+        <section id="work"> <!--ประสบการณ์การทำงาน-->
+            <h2>ประสบการณ์การทำงาน</h2>
+            <ul>
+                <li>ตำแหน่ง: นักพัฒนาซอฟต์แวร์</li>
+                <li>บริษัท: ซอฟต์แวร์ โซลูชั่น จำกัด</li>
+                <li>ระยะเวลา: มกราคม 2563 - ปัจจุบัน</li>
+                <li>
+                    งานบวกเลข: <a href="add.html">Add Project</a>
+                </li>
+                <li>
+                    งาน Echo: <a href="echo.html">Echo Project</a>
+                </li>
+                <li>
+                    งาน Counter: <a href="counter.html">Counter Project</a>
+                </li>
+                <li>
+                    หน้าที่และความรับผิดชอบ:
+                    <ul>
+                        <li>ออกแบบและพัฒนาระบบเว็บแอปพลิเคชันโดยใช้ภาษา Python และ JavaScript</li>
+                        <li>จัดการฐานข้อมูลด้วย MySQL และ PostgreSQL</li>
+                        <li>ทดสอบและแก้ไขข้อบกพร่องในซอฟต์แวร์</li>
+                        <li>ประสานงานกับทีมดีไซน์และทีมบริหารเพื่อปรับปรุงประสิทธิภาพของแอปพลิเคชัน</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        Copyright XXX
+    </footer>
 </body>
 </html>
