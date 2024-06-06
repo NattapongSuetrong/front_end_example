@@ -4,6 +4,8 @@
   import ButtonComponent from './components/ButtonComponent.vue'
   import AddComponent from './components/AddComponent.vue'
   import lightComponent from './components/lightComponent.vue'
+  import GradeComponent from './components/GradeComponent.vue'
+  import pricePerUnitComponent from './components/pricePerUnitComponent.vue'
 </script>
 
 <template>
@@ -19,6 +21,12 @@
       <lightComponent></lightComponent>
     </center>
    
+  </div> <br>
+  <div class="box">
+    <GradeComponent></GradeComponent>
+  </div> <br>
+  <div class="box">
+    <pricePerUnitComponent></pricePerUnitComponent>
   </div>
 </template>
 
@@ -29,5 +37,8 @@
     width: 1200px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 3%;
+    color: black;
   }
+
 </style>
