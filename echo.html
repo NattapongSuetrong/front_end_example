@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add</title>
+    <title>Echo</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <script>
-    function add(){
-        let num1 = document.getElementById('num1').value
-        let num2 = document.getElementById('num2').value
-        let result = parseInt(num1) + parseInt(num2)
-        document.getElementById('result').innerHTML = result
-        console.log(result)
+    function echo(){
+        var input_echo = document.getElementById('inputEcho')
+        var text = input_echo.value
+        console.log(text)
+        document.getElementById('result').innerHTML = text
     }
 </script>
 
@@ -30,8 +29,9 @@
             </ul>
         </nav>
     </header>
+
     <div class="container">
-        <input type="number" id="num1"> + <input type="number" id="num2"> <button onclick="add()"> Calculate</button>
+        <input type="text" id="inputEcho"> <button onclick="echo()">Echo</button>
         <h3>
             Result: <a id="result"></a>
         </h3>

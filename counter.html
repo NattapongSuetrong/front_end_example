@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add</title>
+    <title>Counter</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <script>
-    function add(){
-        let num1 = document.getElementById('num1').value
-        let num2 = document.getElementById('num2').value
-        let result = parseInt(num1) + parseInt(num2)
-        document.getElementById('result').innerHTML = result
-        console.log(result)
+    count = 0
+    function dec(){
+        if(count == 0) return
+
+        count -= 1
+        document.getElementById('count_text').innerHTML = count
+    }
+
+    function inc(){
+        count += 1
+        document.getElementById('count_text').innerHTML = count
     }
 </script>
 
@@ -30,12 +35,13 @@
             </ul>
         </nav>
     </header>
+    
     <div class="container">
-        <input type="number" id="num1"> + <input type="number" id="num2"> <button onclick="add()"> Calculate</button>
-        <h3>
-            Result: <a id="result"></a>
-        </h3>
+        <button onclick="dec()"> - </button>
+        <a id="count_text">0</a>
+        <button onclick="inc()"> + </button>
     </div>
+
     <footer>
         Copyright XXX
     </footer>
