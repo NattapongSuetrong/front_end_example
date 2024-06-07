@@ -1,99 +1,35 @@
 <script setup>
-    import { ref } from 'vue'
-    const form = ref({
-        login: '',
-        password: ''
-    })
-    const users = ref([
-        {
-            id: 1,
-            login: 'user01',
-            name: 'User 1',
-            password: 'password',
-            gender: 'male',
-            age: 18
-        },
-        {
-            id: 2,
-            login: 'user02',
-            name: 'User 2',
-            password: 'password',
-            gender: 'female',
-            age: 40
-        }
-    ])
-    const message = ref('')
-    const error = ref('')
-    const currentUser = ref(null)
-
-    function cancel(){
-        form.value = {
-            login: '',
-            password: ''
-        }
-        message.value = ''
-        error.value = ''
-    }
-
-    function handleSubmit(){
-        const loginUser = users.value.find((item) => item.login === form.value.login)
-        if (!loginUser) {
-            message.value = ''
-            error.value = 'Not found!!!'
-            return console.log('Not found!!!')
-        }
-        if (loginUser.password === form.value.password){
-            error.value = ''
-            message.value = 'Login Sucess'
-            console.log('Login Sucess')
-            currentUser.value = loginUser
-        } else{
-            message.value = ''
-            error.value = 'Login fail!!!'
-            console.log('Login fail!!!')
-        }
-    }
-
-    function logout(){
-        currentUser.value = null
-    }
-
-    function isLogin(){
-        return currentUser.value !== null
-    }
+    import { useloginStore } from '@/stores/login';
+    import CurrentLogin from '../components/CurrentLogin.vue'
+    const loginStore = useloginStore()
 </script>
 
 <template>
     <div class="container">
         <h1>Login</h1>
-        
-        <div v-if="isLogin()">
-           <div class="form-group">
-                {{ currentUser.login }} is login
-            </div>
+        <div v-if="loginStore.isLogin()">
+           <CurrentLogin></CurrentLogin>
             <div class="form-actions">
-                <button class="btn-secondary" @click="logout()">Logout</button>
+                <button class="btn-secondary" @click="loginStore.logout()">Logout</button>
             </div> 
-        </div>
-        
-        
+        </div>     
 
-        <form @submit.prevent="handleSubmit()" class="form-container" v-if="!isLogin()">
+        <form @submit.prevent="loginStore.handleSubmit()" class="form-container" v-if="!loginStore.isLogin()">
             <div class="form-group">
                 <label for="login">Login:</label> 
-                <input type="text" id="login" v-model="form.login" required>
+                <input type="text" id="login" v-model="loginStore.form.login" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" v-model="form.password" required>
+                <input type="password" id="password" v-model="loginStore.form.password" required>
             </div>
             <div class="form-actions">
                 <!-- <button class="btn-primary" type="submit">{{ form.id === -1 ? 'Add' : 'Update' }}</button> -->
                 <button class="btn-primary" type="submit">Login</button>
-                <button class="btn-secondary" @click="cancel()" type="button">Cancel</button>
+                <button class="btn-secondary" @click="loginStore.cancel()" type="button">Cancel</button>
             </div>
-            <div v-if="message !== ''" style="color: green; font-size: 10pt;">{{ message }}</div>
-            <div v-if="error !== ''" style="color: red; font-size: 10pt;">{{ error }}</div>
+            <div v-if="loginStore.message !== ''" style="color: green; font-size: 10pt;">{{ loginStore.message }}</div>
+            <div v-if="loginStore.error !== ''" style="color: red; font-size: 10pt;">{{ loginStore.error }}</div>
         </form>
     </div>
 </template>
@@ -179,25 +115,5 @@ h1 {
 .form-actions {
     display: flex;
     justify-content: space-between;
-}
-
-.user-item {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.user-info {
-    flex: 1;
-}
-
-.user-actions {
-    display: flex;
-    gap: 10px; /* Adjust the gap between buttons if needed */
 }
 </style>

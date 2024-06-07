@@ -1,11 +1,17 @@
 <script setup>
     import { useUserStore } from '@/stores/user';
+    import { useloginStore } from '@/stores/login';
+    import CurrentLogin from '../components/CurrentLogin.vue'
     const userStore = useUserStore()
+    const loginStore = useloginStore()
 </script>
 
 <template>
     <div class="container">
         <h1>User Management</h1>
+        <div v-if="loginStore.isLogin()">
+            <CurrentLogin></CurrentLogin>
+        </div>
         <button class="btn-primary" @click="userStore.addNew()" v-if="!userStore.showForm">Add new</button>
         <form @submit.prevent="userStore.handleSubmit()" v-if="userStore.showForm" class="form-container">
             <div class="form-group">

@@ -42,6 +42,7 @@ export const useUserStore = defineStore('user', () => {
     }
 
     clearForm()
+    showForm.value = false
   }
 
   function clearForm(){
