@@ -1,5 +1,5 @@
 <script setup>
-    import {ref, computed} from 'vue'
+    import {ref} from 'vue'
     const todoList = ref([{
     id:1,
     text: 'Work1',
@@ -36,8 +36,11 @@
     <div>
         <input type="text" v-model="todo"> <button @click="addTodo()">Add Todo</button>
         <ul>
-            <li v-for="(item, index) in todoList" :key="index" @click="done(index)" :class="{finished: !item.status}">
-                {{ index }} {{ item.id }}.{{ item.text }} {{ item.status }} <button @click="del(index)">X</button>
+            <li v-for="(item, index) in todoList" :key="index" :class="{finished: !item.status}">
+                <div @click="done(index)">
+                    {{ index }} {{ item.id }}.{{ item.text }} {{ item.status }}
+                </div>
+                <button @click="del(index)">X</button>
             </li>
         </ul>
     </div>
