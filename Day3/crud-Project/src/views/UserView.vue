@@ -1,102 +1,28 @@
 <script setup>
-    import { ref } from 'vue'
-    const form = ref({
-        id: -1,
-        login: '',
-        name: '',
-        password: '',
-        gender: '',
-        age: null
-    })
-    const users = ref([
-        {
-            id: 1,
-            login: 'user01',
-            name: 'User 1',
-            password: 'password',
-            gender: 'male',
-            age: 18
-        },
-        {
-            id: 2,
-            login: 'user02',
-            name: 'User 2',
-            password: 'password',
-            gender: 'female',
-            age: 40
-        }
-    ])
-    let lastId = 3
-    const showForm = ref(false)
-
-    function handleSubmit(){
-        if(form.value.id === -1){                           //Add new
-            form.value.id = lastId
-            users.value.push({...form.value})
-            lastId++
-        } else{                                             //Edit
-            const index = users.value.findIndex((item) => item.id === form.value.id)
-            users.value[index] = { ...form.value }
-        }
-
-        
-        clearForm()
-    }
-
-    function clearForm(){
-        form.value = {
-            id: -1,
-            login: '',
-            name: '',
-            password: '',
-            gender: '',
-            age: null
-        }
-    }
-
-    function deleteUser(id){
-        const filteredUsers = users.value.filter((item) => item.id !== id)
-        users.value = filteredUsers
-
-        // const index = users.value.findIndex((item) => item.id === id)
-        // users.value.splice(index, 1)
-    }
-
-    function editUser(item){
-        showForm.value = true
-        form.value = { ...item }
-    }
-
-    function cancel(){
-        clearForm()
-        showForm.value = false
-    }
-
-    function addNew(){
-        showForm.value = true
-    }
+    import { useUserStore } from '@/stores/user';
+    const userStore = useUserStore()
 </script>
 
 <template>
     <div class="container">
         <h1>User Management</h1>
-        <button class="btn-primary" @click="addNew()" v-if="!showForm">Add new</button>
-        <form @submit.prevent="handleSubmit()" v-if="showForm" class="form-container">
+        <button class="btn-primary" @click="userStore.addNew()" v-if="!userStore.showForm">Add new</button>
+        <form @submit.prevent="userStore.handleSubmit()" v-if="userStore.showForm" class="form-container">
             <div class="form-group">
                 <label for="login">Login:</label> 
-                <input type="text" id="login" v-model="form.login" required>
+                <input type="text" id="login" v-model="userStore.form.login" required>
             </div>
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" v-model="form.name" required>
+                <input type="text" id="name" v-model="userStore.form.name" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" v-model="form.password" required>
+                <input type="password" id="password" v-model="userStore.form.password" required>
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
-                <select id="gender" v-model="form.gender" required>
+                <select id="gender" v-model="userStore.form.gender" required>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
@@ -104,19 +30,23 @@
             </div>
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="number" id="age" min="0" v-model="form.age" required>
+                <input type="number" id="age" min="0" v-model="userStore.form.age" required>
             </div>
             <div class="form-actions">
-                <button class="btn-primary" type="submit">{{ form.id === -1 ? 'Add' : 'Update' }}</button>
-                <button class="btn-secondary" @click="cancel()" type="button">Cancel</button>
+                <button class="btn-primary" type="submit">{{ userStore.form.id === -1 ? 'Add' : 'Update' }}</button>
+                <button class="btn-secondary" @click="userStore.cancel()" type="button">Cancel</button>
             </div>
         </form>
 
         <ul class="user-list">
-            <li v-for="item in users" :key="item.id" class="user-item">
-                {{ item.login }} - {{ item.name }} ({{ item.gender }}, {{ item.age }} years old)
-                <button class="btn-secondary" @click="editUser(item)">Edit</button>
-                <button class="btn-danger" @click="deleteUser(item.id)">Delete</button>
+            <li v-for="item in userStore.users" :key="item.id" class="user-item">
+                <div class="user-info">
+                    {{ item.login }} - {{ item.name }} ({{ item.gender }}, {{ item.age }} years old)
+                </div>
+                <div class="user-actions">
+                    <button class="btn-secondary" @click="userStore.editUser(item)">Edit</button>
+                    <button class="btn-danger" @click="userStore.deleteUser(item.id)">Delete</button>
+                </div>
             </li>
         </ul>
     </div>
@@ -126,7 +56,7 @@
 /* Container styling */
 .container {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 90px auto 40px;
     padding: 20px;
     border-radius: 10px;
     background-color: #f4f4f4;
@@ -234,5 +164,14 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px; /* Adjust the gap between buttons if needed */
 }
 </style>
